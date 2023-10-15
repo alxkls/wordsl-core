@@ -2,6 +2,7 @@ package com.alex.wordslcore.controller;
 
 import com.alex.wordslcore.service.WordsLService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,13 +22,18 @@ public class WordsLController {
     }
 
     @GetMapping("/getall")
-    public String getAllRecords(){
-        return "all records";
+    public ResponseEntity getAllRecords(){
+        return wordsLService.getAllRecords();
     }
 
     @GetMapping("/getnew")
-    public String getNewRecords(){
-        return "new records";
+    public ResponseEntity getNewRecords(){
+        return wordsLService.getRecordsForExport();
+    }
+
+    @PostMapping("/clean")
+    public String cleanExported(){
+        return wordsLService.cleanExported();
     }
 
 

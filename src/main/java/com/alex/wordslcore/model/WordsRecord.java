@@ -11,7 +11,7 @@ public class WordsRecord {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer Id;
 
-    private String enWords;
+    private String originalWords;
     private String translateWords;
     private Integer userId;
     private boolean hasBeenExported;
@@ -24,12 +24,12 @@ public class WordsRecord {
         Id = id;
     }
 
-    public String getEnWords() {
-        return enWords;
+    public String getOriginalWords() {
+        return originalWords;
     }
 
-    public void setEnWords(String enWords) {
-        this.enWords = enWords;
+    public void setOriginalWords(String originalWords) {
+        this.originalWords = originalWords;
     }
 
     public String getTranslateWords() {
@@ -56,13 +56,18 @@ public class WordsRecord {
         this.hasBeenExported = hasBeenExported;
     }
 
-    public WordsRecord(String enWords, String translateWords, Integer userId) {
-        this.enWords = enWords;
+    public WordsRecord(String originalWords, String translateWords, Integer userId) {
+        this.originalWords = originalWords;
         this.translateWords = translateWords;
         this.userId = userId;
         this.hasBeenExported =false;
     }
 
     public WordsRecord() {
+    }
+
+    @Override
+    public String toString() {
+        return originalWords +" : "+translateWords;
     }
 }

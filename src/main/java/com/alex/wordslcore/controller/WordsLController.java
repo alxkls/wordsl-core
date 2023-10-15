@@ -1,19 +1,23 @@
 package com.alex.wordslcore.controller;
 
+import com.alex.wordslcore.service.WordsLService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class WordsLController {
+    @Autowired
+    WordsLService wordsLService;
 
-    @PostMapping("/put/{enWords}")
-    public String putNewRecordPathVar(@PathVariable(name = "enWords")String enWords){
+    @PostMapping("/put/{wordsToBeTranslated}")
+    public String putNewRecordsPathVar(@PathVariable(name = "wordsToBeTranslated")String wordsToBeTranslated){
 
-        return enWords + " have been saved";
+        return wordsLService.putNewRecord(wordsToBeTranslated);
     }
     @PostMapping("/put")
-    public String putNewRecordParam(@RequestParam(name = "enWords", required = true) String enWords){
+    public String putNewRecordsParam(@RequestParam(name = "wordsToBeTranslated", required = true) String wordsToBeTranslated){
 
-        return enWords + " have been saved";
+        return wordsLService.putNewRecord(wordsToBeTranslated);
     }
 
     @GetMapping("/getall")

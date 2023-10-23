@@ -1,11 +1,9 @@
 package com.alex.wordslcore.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "recordsl")
 public class WordsRecord {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -13,7 +11,7 @@ public class WordsRecord {
 
     private String originalWords;
     private String translateWords;
-    private Integer userId;
+    private String userId;
     private boolean hasBeenExported;
 
     public Integer getId() {
@@ -40,11 +38,11 @@ public class WordsRecord {
         this.translateWords = translateWords;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -56,7 +54,7 @@ public class WordsRecord {
         this.hasBeenExported = hasBeenExported;
     }
 
-    public WordsRecord(String originalWords, String translateWords, Integer userId) {
+    public WordsRecord(String originalWords, String translateWords, String userId) {
         this.originalWords = originalWords;
         this.translateWords = translateWords;
         this.userId = userId;

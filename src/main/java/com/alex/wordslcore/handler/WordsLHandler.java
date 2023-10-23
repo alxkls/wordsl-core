@@ -41,4 +41,13 @@ public class WordsLHandler {
         }
         return words.trim();
     }
+    public boolean validateLanCode(String lanCode){
+        String[] lanCodes = {"ru","uk","de","en"};
+        for (var c :
+                lanCodes) {
+            if (c.equals(lanCode))
+                return true;
+        }
+        return false;
+    }
 }

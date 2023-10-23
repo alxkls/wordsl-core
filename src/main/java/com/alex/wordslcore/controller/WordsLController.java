@@ -14,6 +14,7 @@ public class WordsLController {
     @Autowired
     WordsLService wordsLService;
 
+
     @GetMapping("/greeting")
     public ResponseEntity<String> greeting(@RequestHeader("userId") String userId) {
         // code that uses the language variable

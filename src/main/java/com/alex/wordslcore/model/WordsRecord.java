@@ -60,7 +60,6 @@ public class WordsRecord {
         this.userId = userId;
         this.hasBeenExported =false;
     }
-
     public WordsRecord() {
     }
 

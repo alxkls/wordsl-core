@@ -1,14 +1,17 @@
 package com.alex.wordslcore.handler;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("WordsLHandler should return")
 class WordsLHandlerTest {
 
+    @DisplayName("separated words")
     @Test
     public void testWordsSeparated(){
         assertEquals("some words separated", new WordsLHandler().separateWords("  some words separated"));
@@ -16,7 +19,8 @@ class WordsLHandlerTest {
         assertEquals("some words separated", new WordsLHandler().separateWords("some-words:separated_","-",":","_"));
     }
 
-    //@Disabled
+    @Disabled("for some reason does not work in maven")
+    @DisplayName("translated words")
     @Test
     public void testTranslate() throws IOException {
         WordsLHandler wordsLHandler = new WordsLHandler();
@@ -28,6 +32,7 @@ class WordsLHandlerTest {
 
     }
 
+    @DisplayName("validation of language code")
     @Test
     public void testValidateCode(){
         assertTrue(new WordsLHandler().validateLanCode("ru"));

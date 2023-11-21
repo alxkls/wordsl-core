@@ -86,7 +86,11 @@ public class WordsLService {
         for (var record :
                 wordsRecordRepository.findByUserId(userId)) {
             if (!record.isHasBeenExported()){
-                recordsForExport.add(record.toString());
+                if (recordsForExport.size()==0)
+                    recordsForExport.add(record.toString());
+                else
+                    recordsForExport.add("|"+record.toString());
+
                 record.setHasBeenExported(true);
                 wordsRecordRepository.save(record);
             }

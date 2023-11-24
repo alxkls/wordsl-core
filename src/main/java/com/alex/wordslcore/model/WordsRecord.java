@@ -1,19 +1,17 @@
 package com.alex.wordslcore.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "recordsl")
 public class WordsRecord {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer Id;
 
-    private String enWords;
+    private String originalWords;
     private String translateWords;
-    private Integer userId;
+    private String userId;
     private boolean hasBeenExported;
 
     public Integer getId() {
@@ -24,12 +22,12 @@ public class WordsRecord {
         Id = id;
     }
 
-    public String getEnWords() {
-        return enWords;
+    public String getOriginalWords() {
+        return originalWords;
     }
 
-    public void setEnWords(String enWords) {
-        this.enWords = enWords;
+    public void setOriginalWords(String originalWords) {
+        this.originalWords = originalWords;
     }
 
     public String getTranslateWords() {
@@ -40,11 +38,11 @@ public class WordsRecord {
         this.translateWords = translateWords;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -56,13 +54,17 @@ public class WordsRecord {
         this.hasBeenExported = hasBeenExported;
     }
 
-    public WordsRecord(String enWords, String translateWords, Integer userId) {
-        this.enWords = enWords;
+    public WordsRecord(String originalWords, String translateWords, String userId) {
+        this.originalWords = originalWords;
         this.translateWords = translateWords;
         this.userId = userId;
         this.hasBeenExported =false;
     }
-
     public WordsRecord() {
+    }
+
+    @Override
+    public String toString() {
+        return originalWords +" : "+translateWords;
     }
 }

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordsl-core-deploy
+  labels:
+    app: wordsl-core
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wordsl-core
+  minReadySeconds: 20
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: wordsl-core
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: wordsl-core
+          image: nealex/wordsl-core:2
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres-svc.default:5432/postgres
+          ports:
+            - containerPort: 8080

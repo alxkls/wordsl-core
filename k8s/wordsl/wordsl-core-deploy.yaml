@@ -26,6 +26,6 @@ spec:
           image: nealex/wordsl-core:2
           env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://10.101.192.82:5432/postgres
+              value: jdbc:postgresql://postgres-svc.default:5432/postgres
           ports:
             - containerPort: 8080

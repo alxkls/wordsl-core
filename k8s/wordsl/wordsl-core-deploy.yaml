@@ -23,7 +23,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
         - name: wordsl-core
-          image: nealex/wordsl-core:2
+          image: wordsl-core:1
           env:
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://postgres-svc.default:5432/postgres

@@ -1,6 +1,6 @@
 #!/bin/sh
-#Author: Alexey020
-#Script to run app
+#Author: Alxkls
+#Script to run the app
 
 #Deploying postgres on k8s
 kubectl apply -f k8s/postgres/postgres-deploy.yaml

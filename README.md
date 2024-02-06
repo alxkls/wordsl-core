@@ -17,6 +17,7 @@ a couple of buttons responsible for intoraction and would securly authenticate a
 withing messenger.
 Alternatively it is also possible to build front-end to do the same thing, it this case we would need to think more
 about identifying and verefication for potential consumers
+
 If we there is some free time and bored - create mobile app solution :)
 
 
